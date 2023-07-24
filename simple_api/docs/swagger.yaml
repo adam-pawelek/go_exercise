@@ -1,0 +1,116 @@
+basePath: /api/v1
+definitions:
+  model.Weapon:
+    properties:
+      name:
+        type: string
+      type:
+        type: string
+    type: object
+  model.WeaponsRequest:
+    properties:
+      Weapon:
+        items:
+          $ref: '#/definitions/model.Weapon'
+        type: array
+    type: object
+externalDocs:
+  description: OpenAPI
+  url: https://swagger.io/resources/open-api/
+host: localhost:8080
+info:
+  contact:
+    email: support@swagger.io
+    name: API Support
+    url: http://www.swagger.io/support
+  description: This is a sample server celler server.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Swagger Example API
+  version: "1.0"
+paths:
+  /weapon:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: type
+        in: query
+        name: type
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.WeaponsRequest'
+      summary: Get all weapons
+      tags:
+      - weapon
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Add weapon
+        in: body
+        name: account
+        required: true
+        schema:
+          $ref: '#/definitions/model.Weapon'
+      - description: type
+        in: query
+        name: type
+        type: string
+      - description: name
+        in: query
+        name: name
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.WeaponsRequest'
+      summary: Post a weapon
+      tags:
+      - weapon
+  /weapon/{type}:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: Account ID
+        in: path
+        name: type
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: Post a weapon
+      tags:
+      - weapon
+  /weapons:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.WeaponsRequest'
+      summary: Get all weapons
+      tags:
+      - weapon
+securityDefinitions:
+  BasicAuth:
+    type: basic
+swagger: "2.0"
