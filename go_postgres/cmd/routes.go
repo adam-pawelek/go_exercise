@@ -1,7 +1,7 @@
 package main
 
 import (
-	handlers "command-line-argumentsC:\\Users\\Adam\\Desktop\\gooooo\\go_exercise\\go_postgres\\handlers\\facts.go"
+	"github.com/adam-pawelek/go_exercise/blob/main/go_postgres/handlers"
 	"github.com/gofiber/fiber/v2"
 )
 
