@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 
+	"github.com/adam-pawelek/go_exercise/tree/main/gin_and_gorm/controllers"
 	"github.com/adam-pawelek/go_exercise/tree/main/gin_and_gorm/initializers"
 	"github.com/gin-gonic/gin"
 )
@@ -20,6 +21,7 @@ func main() {
 			"message": "pong",
 		})
 	})
+	r.POST("/signup", controllers.Signup)
 	fmt.Println("sadf")
 	r.Run() // listen and serve on 0.0.0.0:8080
 }
