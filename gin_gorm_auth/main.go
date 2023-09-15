@@ -5,7 +5,7 @@ import (
 	"os"
 
 	"github.com/adam-pawelek/go_exercise/tree/main/gin_and_gorm/controllers"
-	docs "github.com/adam-pawelek/go_exercise/tree/main/gin_and_gorm/docs"
+	"github.com/adam-pawelek/go_exercise/tree/main/gin_and_gorm/docs"
 	"github.com/adam-pawelek/go_exercise/tree/main/gin_and_gorm/initializers"
 	"github.com/adam-pawelek/go_exercise/tree/main/gin_and_gorm/middleware"
 	"github.com/gin-gonic/gin"
@@ -14,7 +14,7 @@ import (
 )
 
 func init() {
-	initializers.LoadEnvVariables()
+	//initializers.LoadEnvVariables()
 	initializers.ConnectToDB()
 	initializers.SyncDatabase()
 }
@@ -51,8 +51,8 @@ func main() {
 	fmt.Println("sadf")
 
 	docs.SwaggerInfo.BasePath = "/"
-	docs.SwaggerInfo.Host = fmt.Sprintf("%v:%v", os.Getenv("DB_HOST"), os.Getenv("PORT"))
+	docs.SwaggerInfo.Host = fmt.Sprintf("%v:%v", os.Getenv("APP_HOST"), os.Getenv("PORT"))
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerfiles.Handler))
 
-	r.Run() // listen and serve on 0.0.0.0:8080
+	r.Run(fmt.Sprintf(":%v", os.Getenv("PORT")))
 }

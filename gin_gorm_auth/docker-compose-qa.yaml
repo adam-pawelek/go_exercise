@@ -6,9 +6,10 @@ services:
       context: .
       dockerfile: Dockerfile.yaml
     ports:
-      - "4000:4000"
+      - "${PORT}:${PORT}"
     depends_on:
       - db
+    restart: on-failure
     environment:
       - DB_USER=${DB_USER}
       - DB_PASSWORD=${DB_PASSWORD}
@@ -16,6 +17,7 @@ services:
       - DB_HOST=db
       - PORT=${PORT}
       - SECERET=${SECERET}
+      - APP_HOST=${APP_HOST}
 
   db:
     image: postgres:alpine
