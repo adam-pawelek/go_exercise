@@ -1,16 +1,3 @@
-
-
-# Problems with swagger 
-
-
-Swagger and Swaggo defeated  me for now. Unfortunately you can’t update cookie token like in the picture below
-![image](https://github.com/adam-pawelek/go_exercise/assets/45467141/be591687-3c8f-4083-a847-ab3921e65d5c)
-
-## How to use token cookie authorization?.
-1. Create user if you don’t have one 
-2. Use login request (swagger/postman will automatically save cookie)
-3. Use validate request to check if you are log in 
-
 # App info 
 
 ### Database 
@@ -25,6 +12,21 @@ To run the application, all you need to do is enter this command (the .env file 
 '''
 docker compose -f docker-compose-qa.yaml up
 '''
+
+<br>
+
+# Problems with swagger 
+
+
+Swagger and Swaggo defeated  me for now. Unfortunately you can’t update cookie token like in the picture below
+![image](https://github.com/adam-pawelek/go_exercise/assets/45467141/be591687-3c8f-4083-a847-ab3921e65d5c)
+
+## How to use token cookie authorization?.
+1. Create user if you don’t have one 
+2. Use login request (swagger/postman will automatically save cookie)
+3. Use validate request to check if you are log in 
+
+
 
 <br>
 <br>
