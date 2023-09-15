@@ -1,7 +1,7 @@
 # App info 
 
 ### Database 
-You can connect to website via adminer app (localhost:8080)
+You can connect to database via adminer app (localhost:8080)
 
 ### Swagger 
 http://localhost:4000/swagger/index.html#
