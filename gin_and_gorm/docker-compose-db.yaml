@@ -1,6 +1,22 @@
 version: '3.8'
 
 services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.yaml
+    ports:
+      - "4000:4000"
+    depends_on:
+      - db
+    environment:
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_NAME=${DB_NAME}
+      - DB_HOST=db
+      - PORT=${PORT}
+      - SECERET=${SECERET}
+
   db:
     image: postgres:alpine
     environment:
