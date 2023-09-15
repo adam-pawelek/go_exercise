@@ -13,6 +13,17 @@ import (
 	"golang.org/x/crypto/bcrypt"
 )
 
+// @BasePath /signup
+// Post  weapon
+// @Summary Post a weapon
+// @Schemes
+// @Description
+// @Accept json
+// @Produce json
+// @Success 200
+// @Param        account  body      models.Body  true  "Add weapon"
+//
+// @Router /signup [post]
 func Signup(c *gin.Context) {
 	// Get email/pass of req body
 
@@ -53,20 +64,34 @@ func Signup(c *gin.Context) {
 	})
 }
 
+// @BasePath /login
+// Post  weapon
+// @Summary Post a weapon
+// @Schemes
+// @Description
+// @Accept json
+// @Produce json
+// @Success 200
+// @Param        account  body      models.Body  true  "Add weapon"
+//
+// @Router /login [post]
 func Login(c *gin.Context) {
 	//Get the email and pass of req body
 	var body struct {
 		Email    string
 		Password string
 	}
+	fmt.Println("Login")
+	fmt.Println(body.Email)
+	fmt.Println(body.Password)
 
-	if c.Bind(&body) != nil {
+	if c.Bind(&body.Email) != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"error": "Failed to read body",
 		})
 		return
 	}
-
+	fmt.Println("CZemu?")
 	// Look up requestd user
 	var user models.User
 	initializers.DB.First(&user, "email = ?", body.Email)
@@ -116,6 +141,16 @@ func Login(c *gin.Context) {
 
 }
 
+// @BasePath /validate
+//
+// @Summary Get userjkhvlkjdshakjfhaskjlfhsadkjhfdsakljhdskajfkajs
+// @Schemes
+// @Description
+// @Accept json
+// @Produce json
+// @Success 200
+//
+// @Router /validate [get]
 func Validate(c *gin.Context) {
 	user, _ := c.Get("user")
 

@@ -1,0 +1,8 @@
+FROM golang:1.21.1-alpine3.18 as build
+WORKDIR /gin_gorm_auth
+COPY . .
+RUN go build
+FROM alpine:latest
+WORKDIR /gin_gorm_auth
+COPY --from=build /gin_gorm_auth /gin_gorm_auth
+CMD ["./gin_gorm_auth"]

@@ -1,8 +1,0 @@
-FROM golang:1.21.1-alpine3.18 as build
-WORKDIR /gin_and_gorm
-COPY . .
-RUN go build
-FROM alpine:latest
-WORKDIR /gin_and_gorm
-COPY --from=build /gin_and_gorm /gin_and_gorm
-CMD ["./gin_and_gorm"]
