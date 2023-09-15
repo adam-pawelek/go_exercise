@@ -109,10 +109,10 @@ const docTemplate = `{
         }
     },
     "securityDefinitions": {
-        "OAuth2Password": {
-            "type": "oauth2",
-            "flow": "password",
-            "tokenUrl": "/login"
+        "JWT": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "cookie"
         }
     },
     "externalDocs": {
@@ -124,8 +124,8 @@ const docTemplate = `{
 // SwaggerInfo holds exported Swagger Info so clients can modify it
 var SwaggerInfo = &swag.Spec{
 	Version:          "1.0",
-	Host:             "localhost:4000",
-	BasePath:         "/",
+	Host:             "",
+	BasePath:         "",
 	Schemes:          []string{},
 	Title:            "Swagger Example API",
 	Description:      "This is a sample server celler server.",

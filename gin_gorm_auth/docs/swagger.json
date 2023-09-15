@@ -15,8 +15,6 @@
         },
         "version": "1.0"
     },
-    "host": "localhost:4000",
-    "basePath": "/",
     "paths": {
         "/login": {
             "post": {
@@ -103,10 +101,10 @@
         }
     },
     "securityDefinitions": {
-        "OAuth2Password": {
-            "type": "oauth2",
-            "flow": "password",
-            "tokenUrl": "/login"
+        "JWT": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "cookie"
         }
     },
     "externalDocs": {

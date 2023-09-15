@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/adam-pawelek/go_exercise/tree/main/gin_and_gorm/controllers"
 	docs "github.com/adam-pawelek/go_exercise/tree/main/gin_and_gorm/docs"
@@ -30,12 +31,10 @@ func init() {
 // @license.name  Apache 2.0
 // @license.url   http://www.apache.org/licenses/LICENSE-2.0.html
 
-// @host      localhost:4000
-// @BasePath  /
-
-// @securitydefinitions.oauth2.password OAuth2Password
-// @tokenUrl  /login
-// @authorizationurl  /login
+// @securityDefinitions.apiKey JWT
+// @type     apiKey
+// @in       cookie
+// @name     Authorization
 
 // @externalDocs.description  OpenAPI
 // @externalDocs.url          https://swagger.io/resources/open-api/
@@ -52,6 +51,7 @@ func main() {
 	fmt.Println("sadf")
 
 	docs.SwaggerInfo.BasePath = "/"
+	docs.SwaggerInfo.Host = fmt.Sprintf("%v:%v", os.Getenv("DB_HOST"), os.Getenv("PORT"))
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerfiles.Handler))
 
 	r.Run() // listen and serve on 0.0.0.0:8080

@@ -81,16 +81,16 @@ func Login(c *gin.Context) {
 		Email    string
 		Password string
 	}
-	fmt.Println("Login")
-	fmt.Println(body.Email)
-	fmt.Println(body.Password)
 
-	if c.Bind(&body.Email) != nil {
+	if c.Bind(&body) != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"error": "Failed to read body",
 		})
 		return
 	}
+	fmt.Println("Login")
+	fmt.Println(body.Email)
+	fmt.Println(body.Password)
 	fmt.Println("CZemu?")
 	// Look up requestd user
 	var user models.User
