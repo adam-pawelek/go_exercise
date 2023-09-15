@@ -5,6 +5,7 @@ import (
 
 	"github.com/adam-pawelek/go_exercise/tree/main/gin_and_gorm/controllers"
 	"github.com/adam-pawelek/go_exercise/tree/main/gin_and_gorm/initializers"
+	"github.com/adam-pawelek/go_exercise/tree/main/gin_and_gorm/middleware"
 	"github.com/gin-gonic/gin"
 )
 
@@ -22,6 +23,8 @@ func main() {
 		})
 	})
 	r.POST("/signup", controllers.Signup)
+	r.POST("login", controllers.Login)
+	r.GET("/validate", middleware.RequireAuth, controllers.Validate)
 	fmt.Println("sadf")
 	r.Run() // listen and serve on 0.0.0.0:8080
 }
