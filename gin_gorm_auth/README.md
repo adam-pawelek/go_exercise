@@ -7,7 +7,7 @@ You can connect to database via adminer app (localhost:8080)
 http://localhost:4000/swagger/index.html#
 
 ### App
-To run the application, all you need to do is enter this command (the .env file is in the repository)
+To run the application, all you need to do is enter this command 
 
 ```
 docker compose -f docker-compose-qa.yaml up
