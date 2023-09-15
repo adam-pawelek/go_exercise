@@ -40,8 +40,10 @@ docker compose -f docker-compose-qa.yaml up
 # Commands for me 
 
 Occurred problems swago 
-Problems with swag init 
+Problems with swag init
+```
 export PATH=$(go env GOPATH)/bin:$PATH
+```
 
 ---
 
