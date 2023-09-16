@@ -38,6 +38,6 @@ spec:
           - name: DB_HOST
             value: "db"
           - name: APP_HOST
-            value: "localhost"
+            value: "go-app-service"
           - name: SECERET
             value: "asfdsadfsafdsfasdfasdlkfjskljk123"
