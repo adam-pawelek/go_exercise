@@ -7,15 +7,33 @@ You can connect to database via adminer app (localhost:8080)
 http://localhost:4000/swagger/index.html#
 
 ### App
-To run the application, all you need to do is enter this command 
+You can run this application either with docker or kubernetes.
 
+#### Docker 
 ```
 docker compose -f docker-compose-qa.yaml up
 ```
 
+#### Kubernetes
+```
+1. 
+kubectl apply -f postgres-deploy.yaml 
+kubectl apply -f postgres-service.yaml 
+
+2. 
+kubectl apply -f go-app-deploy.yaml
+kubectl apply -f go-app-service.yaml 
+
+3. For checking database
+kubectl apply -f db-amdiner-deploy.yaml 
+kubectl apply -f db-amdiner-service.yaml 
+``` 
+
 <br>
 
 # Problems with swagger 
+### Problem with kubernetes
+For know you can access swagger from kubernetes deployment but you can't make request via Swagger. 
 
 
 Swagger and Swaggo defeated  me for now. Unfortunately you can’t update cookie token like in the picture below
@@ -57,7 +75,7 @@ swag init
 
 **Docker** 
 ```
-docker compose -f docker-compose-dev.yaml up  -> setting up only databse
+docker compose -f docker-compose-dev.yaml up  -> setting up only database
 docker compose -f docker-compose-prod.yaml up -> setting up whole application 
 ```
 
