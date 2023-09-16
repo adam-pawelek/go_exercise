@@ -1,0 +1,17 @@
+apiVersion: v1 
+kind: Service
+metadata:
+  name: db-adminer-service
+  labels:
+    name: db-adminer-service
+    app: gin_gorm_auth
+
+spec:
+  type: NodePort
+  ports:
+    - port: 8080
+      targetPort: 8080
+      nodePort: 30004
+  selector:
+    name: db-adminer-pod
+    app: gin_gorm_auth

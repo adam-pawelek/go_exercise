@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: db-adminer-deploy
+  labels:
+    name: db-adminer-deploy
+    app:  gin_gorm_auth
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: db-adminer-pod
+      app:  gin_gorm_auth
+    
+  template:
+    metadata:
+      name: db-adminer-pod
+      labels:
+        name: db-adminer-pod
+        app:  gin_gorm_auth
+
+    spec:
+      containers:
+        - name: db-adminer
+          image: adminer
+          ports:
+            - containerPort: 8080

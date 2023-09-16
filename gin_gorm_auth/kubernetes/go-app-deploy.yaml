@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-app-deploy
+  labels:
+    name: go-app-deploy
+    app: gin_gorm_auth
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: go-app-pod
+      app: gin_gorm_auth
+    
+  template:
+    metadata:
+      name: go-app-pod
+      labels:
+        name: go-app-pod
+        app: gin_gorm_auth
+
+    spec:
+      containers:
+        - name: go-app
+          image: adampwk/gin_gorm_auth-app
+          ports:
+            - containerPort: 4000
+          env:
+          - name: PORT
+            value: "4000"
+          - name: DB_USER
+            value: "postgres"
+          - name: DB_PASSWORD
+            value: "postgres"
+          - name: DB_NAME
+            value: "postgres"
+          - name: DB_HOST
+            value: "db"
+          - name: APP_HOST
+            value: "localhost"
+          - name: SECERET
+            value: "asfdsadfsafdsfasdfasdlkfjskljk123"
