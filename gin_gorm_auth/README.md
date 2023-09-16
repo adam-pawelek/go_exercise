@@ -7,7 +7,7 @@ You can connect to database via adminer app (localhost:8080) -> Docker
 http://localhost:4000/swagger/index.html#  -> Docker
 
 ### App
-You can run this application either with docker or kubernetes.
+You can run this application either with Docker or Kubernetes.
 
 #### Docker 
 ```
