@@ -59,8 +59,7 @@ Swagger and Swaggo defeated  me for now. Unfortunately you can’t update cookie
 
 # Commands for me 
 
-Occurred problems swago 
-Problems with swag init
+Occurred problems swago -> swag init
 ```
 export PATH=$(go env GOPATH)/bin:$PATH
 ```
