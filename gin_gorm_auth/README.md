@@ -35,7 +35,7 @@ kubectl apply -f db-amdiner-service.yaml
 ### Problem with kubernetes
 For now you can access swagger from kubernetes deployment but you can't make request via Swagger. 
 
-
+### Problem with Swaggo
 Swagger and Swaggo defeated  me for now. Unfortunately you can’t update cookie token like in the picture below
 ![image](https://github.com/adam-pawelek/go_exercise/assets/45467141/be591687-3c8f-4083-a847-ab3921e65d5c)
 
